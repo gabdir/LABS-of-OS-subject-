@@ -1,0 +1,159 @@
+    1  cd HelloWorld
+    2  cd /
+    3  cd '/c/Users/Aidar/IdeaProjects/Intensive Homework1/Intensive Homework1.iml'
+    4  cd \
+    5  cd/
+    6  cd /
+    7  cd c/Users/Aidar/IdeaProjects/Intensive\ Homework1/src/
+    8  git init
+    9  git config --global user.name "Aidar"
+   10  git config --global user.email "ag23121999@mail.ru"
+   11  git remote add origin https://gitlab.com/Aidar2312/Gitlabproject.git
+   12  git status
+   13  git add .
+   14  git commit -am "LOL"
+   15  git push origin master
+   16  #!/bin/bash
+   17  trap '[ "$?" -eq 0 ] || read -p "Looks like something went wrong in step ´$STEP´... Press any key to continue..."' EXIT
+   18  #Quick Hack: used to convert e.g. "C:\Program Files\Docker Toolbox" to "/c/Program Files/Docker Toolbox"
+   19  win_to_unix_path(){  	wd="$(pwd)"; 	cd "$1"; 		the_path="$(pwd)"; 	cd "$wd"; 	echo $the_path; }
+   20  # This is needed  to ensure that binaries provided
+   21  # by Docker Toolbox over-ride binaries provided by
+   22  # Docker for Windows when launching using the Quickstart.
+   23  export PATH="$(win_to_unix_path "${DOCKER_TOOLBOX_INSTALL_PATH}"):$PATH"
+   24  VM=${DOCKER_MACHINE_NAME-default}
+   25  DOCKER_MACHINE="${DOCKER_TOOLBOX_INSTALL_PATH}\docker-machine.exe"
+   26  STEP="Looking for vboxmanage.exe"
+   27  if [ ! -z "$VBOX_MSI_INSTALL_PATH" ]; then   VBOXMANAGE="${VBOX_MSI_INSTALL_PATH}VBoxManage.exe"; else   VBOXMANAGE="${VBOX_INSTALL_PATH}VBoxManage.exe"; fi
+   28  BLUE='\033[1;34m'
+   29  GREEN='\033[0;32m'
+   30  NC='\033[0m'
+   31  #clear all_proxy if not socks address
+   32  if  [[ $ALL_PROXY != socks* ]]; then   unset ALL_PROXY; fi
+   33  if  [[ $all_proxy != socks* ]]; then   unset all_proxy; fi
+   34  if [ ! -f "${DOCKER_MACHINE}" ]; then   echo "Docker Machine is not installed. Please re-run the Toolbox Installer and try again.";   exit 1; fi
+   35  if [ ! -f "${VBOXMANAGE}" ]; then   echo "VirtualBox is not installed. Please re-run the Toolbox Installer and try again.";   exit 1; fi
+   36  "${VBOXMANAGE}" list vms | grep \""${VM}"\" &> /dev/null
+   37  VM_EXISTS_CODE=$?
+   38  set -e
+   39  STEP="Checking if machine $VM exists"
+   40  if [ $VM_EXISTS_CODE -eq 1 ]; then   "${DOCKER_MACHINE}" rm -f "${VM}" &> /dev/null || :;   rm -rf ~/.docker/machine/machines/"${VM}"   if [ "${HTTP_PROXY}" ]; then     PROXY_ENV="$PROXY_ENV --engine-env HTTP_PROXY=$HTTP_PROXY";   fi;   if [ "${HTTPS_PROXY}" ]; then     PROXY_ENV="$PROXY_ENV --engine-env HTTPS_PROXY=$HTTPS_PROXY";   fi;   if [ "${NO_PROXY}" ]; then     PROXY_ENV="$PROXY_ENV --engine-env NO_PROXY=$NO_PROXY";   fi;   "${DOCKER_MACHINE}" create -d virtualbox $PROXY_ENV "${VM}"; fi
+   41  date
+   42  sleep 3
+   43  date
+   44  date
+   45  sleep 3
+   46  date
+   47  date
+   48  sleep 3
+   49  date
+   50  date
+   51  sleep 3
+   52  date
+   53  #!/bin/bash
+   54  trap '[ "$?" -eq 0 ] || read -p "Looks like something went wrong in step ´$STEP´... Press any key to continue..."' EXIT
+   55  #Quick Hack: used to convert e.g. "C:\Program Files\Docker Toolbox" to "/c/Program Files/Docker Toolbox"
+   56  win_to_unix_path(){  	wd="$(pwd)"; 	cd "$1"; 		the_path="$(pwd)"; 	cd "$wd"; 	echo $the_path; }
+   57  # This is needed  to ensure that binaries provided
+   58  # by Docker Toolbox over-ride binaries provided by
+   59  # Docker for Windows when launching using the Quickstart.
+   60  export PATH="$(win_to_unix_path "${DOCKER_TOOLBOX_INSTALL_PATH}"):$PATH"
+   61  VM=${DOCKER_MACHINE_NAME-default}
+   62  DOCKER_MACHINE="${DOCKER_TOOLBOX_INSTALL_PATH}\docker-machine.exe"
+   63  STEP="Looking for vboxmanage.exe"
+   64  if [ ! -z "$VBOX_MSI_INSTALL_PATH" ]; then   VBOXMANAGE="${VBOX_MSI_INSTALL_PATH}VBoxManage.exe"; else   VBOXMANAGE="${VBOX_INSTALL_PATH}VBoxManage.exe"; fi
+   65  BLUE='\033[1;34m'
+   66  GREEN='\033[0;32m'
+   67  NC='\033[0m'
+   68  #clear all_proxy if not socks address
+   69  if  [[ $ALL_PROXY != socks* ]]; then   unset ALL_PROXY; fi
+   70  if  [[ $all_proxy != socks* ]]; then   unset all_proxy; fi
+   71  if [ ! -f "${DOCKER_MACHINE}" ]; then   echo "Docker Machine is not installed. Please re-run the Toolbox Installer and try again.";   exit 1; fi
+   72  if [ ! -f "${VBOXMANAGE}" ]; then   echo "VirtualBox is not installed. Please re-run the Toolbox Installer and try again.";   exit 1; fi
+   73  "${VBOXMANAGE}" list vms | grep \""${VM}"\" &> /dev/null
+   74  VM_EXISTS_CODE=$?
+   75  set -e
+   76  STEP="Checking if machine $VM exists"
+   77  if [ $VM_EXISTS_CODE -eq 1 ]; then   "${DOCKER_MACHINE}" rm -f "${VM}" &> /dev/null || :;   rm -rf ~/.docker/machine/machines/"${VM}"   if [ "${HTTP_PROXY}" ]; then     PROXY_ENV="$PROXY_ENV --engine-env HTTP_PROXY=$HTTP_PROXY";   fi;   if [ "${HTTPS_PROXY}" ]; then     PROXY_ENV="$PROXY_ENV --engine-env HTTPS_PROXY=$HTTPS_PROXY";   fi;   if [ "${NO_PROXY}" ]; then     PROXY_ENV="$PROXY_ENV --engine-env NO_PROXY=$NO_PROXY";   fi;   "${DOCKER_MACHINE}" create -d virtualbox $PROXY_ENV "${VM}"; fi
+   78  #!/bin/bash
+   79  trap '[ "$?" -eq 0 ] || read -p "Looks like something went wrong in step ´$STEP´... Press any key to continue..."' EXIT
+   80  #Quick Hack: used to convert e.g. "C:\Program Files\Docker Toolbox" to "/c/Program Files/Docker Toolbox"
+   81  win_to_unix_path(){  	wd="$(pwd)"; 	cd "$1"; 		the_path="$(pwd)"; 	cd "$wd"; 	echo $the_path; }
+   82  # This is needed  to ensure that binaries provided
+   83  # by Docker Toolbox over-ride binaries provided by
+   84  # Docker for Windows when launching using the Quickstart.
+   85  export PATH="$(win_to_unix_path "${DOCKER_TOOLBOX_INSTALL_PATH}"):$PATH"
+   86  VM=${DOCKER_MACHINE_NAME-default}
+   87  DOCKER_MACHINE="${DOCKER_TOOLBOX_INSTALL_PATH}\docker-machine.exe"
+   88  STEP="Looking for vboxmanage.exe"
+   89  if [ ! -z "$VBOX_MSI_INSTALL_PATH" ]; then   VBOXMANAGE="${VBOX_MSI_INSTALL_PATH}VBoxManage.exe"; else   VBOXMANAGE="${VBOX_INSTALL_PATH}VBoxManage.exe"; fi
+   90  BLUE='\033[1;34m'
+   91  GREEN='\033[0;32m'
+   92  NC='\033[0m'
+   93  #clear all_proxy if not socks address
+   94  if  [[ $ALL_PROXY != socks* ]]; then   unset ALL_PROXY; fi
+   95  if  [[ $all_proxy != socks* ]]; then   unset all_proxy; fi
+   96  if [ ! -f "${DOCKER_MACHINE}" ]; then   echo "Docker Machine is not installed. Please re-run the Toolbox Installer and try again.";   exit 1; fi
+   97  if [ ! -f "${VBOXMANAGE}" ]; then   echo "VirtualBox is not installed. Please re-run the Toolbox Installer and try again.";   exit 1; fi
+   98  "${VBOXMANAGE}" list vms | grep \""${VM}"\" &> /dev/null
+   99  VM_EXISTS_CODE=$?
+  100  set -e
+  101  STEP="Checking if machine $VM exists"
+  102  if [ $VM_EXISTS_CODE -eq 1 ]; then   "${DOCKER_MACHINE}" rm -f "${VM}" &> /dev/null || :;   rm -rf ~/.docker/machine/machines/"${VM}"   if [ "${HTTP_PROXY}" ]; then     PROXY_ENV="$PROXY_ENV --engine-env HTTP_PROXY=$HTTP_PROXY";   fi;   if [ "${HTTPS_PROXY}" ]; then     PROXY_ENV="$PROXY_ENV --engine-env HTTPS_PROXY=$HTTPS_PROXY";   fi;   if [ "${NO_PROXY}" ]; then     PROXY_ENV="$PROXY_ENV --engine-env NO_PROXY=$NO_PROXY";   fi;   "${DOCKER_MACHINE}" create -d virtualbox $PROXY_ENV "${VM}"; fi
+  103  STEP="Checking status on $VM"
+  104  VM_STATUS="$( set +e ; "${DOCKER_MACHINE}" status "${VM}" )"
+  105  if [ "${VM_STATUS}" != "Running" ]; then   "${DOCKER_MACHINE}" start "${VM}";   yes | "${DOCKER_MACHINE}" regenerate-certs "${VM}"; fi
+  106  STEP="Setting env"
+  107  eval "$("${DOCKER_MACHINE}" env --shell=bash --no-proxy "${VM}" | sed -e "s/export/SETX/g" | sed -e "s/=/ /g")" &> /dev/null #for persistent Environment Variables, available in next sessions
+  108  eval "$("${DOCKER_MACHINE}" env --shell=bash --no-proxy "${VM}")" #for transient Environment Variables, available in current session
+  109  STEP="Finalize"
+  110  clear
+  111  cat << EOF
+  112                          ##         .
+  113                    ## ## ##        ==
+  114                 ## ## ## ## ##    ===
+  115             /"""""""""""""""""\___/ ===
+  116        ~~~ {~~ ~~~~ ~~~ ~~~~ ~~~ ~ /  ===- ~~~
+  117             \______ o           __/
+  118               \    \         __/
+  119                \____\_______/
+  120  EOF
+  121  echo -e "${BLUE}docker${NC} is configured to use the ${GREEN}${VM}${NC} machine with IP ${GREEN}$("${DOCKER_MACHINE}" ip ${VM})${NC}"
+  122  echo "For help getting started, check out the docs at https://docs.docker.com"
+  123  echo
+  124  echo 
+  125  #cd #Bad: working dir should be whatever directory was invoked from rather than fixed to the Home folder
+  126  docker () {   MSYS_NO_PATHCONV=1 docker.exe "$@"; }
+  127  export -f docker
+  128  if [ $# -eq 0 ]; then   echo "Start interactive shell";   exec "$BASH" --login -i; else   echo "Start shell with command";   exec "$BASH" -c "$*"; fi
+  129  dir
+  130  mkdir ~/week1
+  131  mkdir ~/week1
+  132  cd ~/week1
+  133  ls /usr/bin | sort -r
+  134  ls /usr/bin | sort -r | grep gcc
+  135  pwd
+  136  rm -r <week1>
+  137  ~
+  138  cd <~>
+  139  cd <Aidar>
+  140  cd ~/
+  141  rm -r <week1>
+  142  rm <week1>
+  143  rm ~/week1
+  144  pwd
+  145  cd ~/week1
+  146  rm ~/week1
+  147  mkdir ~/week1
+  148  cd ~/week
+  149  cd ~/week1
+  150  pwd
+  151  s /usr/bin | sort -r | grep gcc > ex1.txt
+  152  ls /usr/bin | sort -r | grep gcc > ex1.txt
+  153  whoami
+  154  head -n 1 < ex1.txt
+  155  man whoami
+  156  man man
+  157  man --help
+  158  hostname
+  159  history > ex2.txt
