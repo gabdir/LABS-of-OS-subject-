@@ -1,0 +1,2 @@
+Each page size is 8KB = 2^13 bits. That's means page offset will be 13 bits. Virtual addresses are 16 bits each. So, each page will be 3 bits = 16 bits - 13 bits. 
+Therfore, 2^3(bits) = 8 pages in the page table should be.   

@@ -1,0 +1,8 @@
+              total        used        free      shared  buff/cache   available
+Mem:           7,7G        2,5G        3,9G        160M        1,3G        4,8G
+Swap:          2,0G          0B        2,0G
+Total:         9,7G        2,5G        5,9G
+
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+ 0  0      0 4096244 130640 1203496    0    0    50    19  120 1173  8  2 89  1  0
