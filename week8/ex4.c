@@ -20,14 +20,15 @@ int main(int argc, char const *argv[])
 		getrusage(RUSAGE_SELF, usage);
 
 		if(errno == EFAULT)
-    		printf("Error: EFAULT\n");
+		printf("Error: EFAULT\n");
+
 		else if(errno == EINVAL)
-    		printf("Error: EINVAL\n");
+		printf("Error: EINVAL\n");
 
-    	printf("Max: %ld\n",usage -> ru_maxrss);
+		printf("Max: %ld\n",usage -> ru_maxrss);
 
-    	k++;
-		sleep(1);
+		k++;
+			sleep(1);
 	}
 	return 0;
 }
