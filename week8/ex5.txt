@@ -1,4 +1,3 @@
 The physical memory is the primary memory (RAM). A physical address is the address to a physical memory location in the primary memory.
-
 A virtual address is the address of something stored in the virtual memory.
 Size of virtual memory = main memory + swap area.
