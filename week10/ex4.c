@@ -23,19 +23,25 @@ int main() {
   	return -1;
   }
 
-  while((direct = readdir(dp)) != NULL) {
-    int i;
-    for (i = 0; i < num; ++i)
+  while((direct = readdir(dp)) != NULL) 
+  {
+    
+    for (int i = 0; i < num; ++i)
       if(direct->d_ino == inode[i]) break;
+    
     if (i == num)
       inode[num++] = direct->d_ino;
+    
     strcpy(files[i][nn[i]++], direct->d_name);
   }
 
-  for (int i = 0; i < num; ++i)
-    if (nn[i] > 1) {
+  for (int i = 0; i < num; ++i) 
+    if (nn[i] > 1) 
+    {
       printf("inode number: %ld\n", inode[i]);
+      
       for (int j = 0; j < nn[i]; ++j)
         printf("%s\n", files[i][j]);
     }
+  (void)closedir(dp);
 }
