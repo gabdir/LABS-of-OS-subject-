@@ -36,7 +36,7 @@ int main() {
   }
 
   for (int i = 0; i < num; ++i) 
-    if (nn[i] > 1) 
+    if (nn[i] >= 2) 
     {
       printf("inode number: %ld\n", inode[i]);
       
