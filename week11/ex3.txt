@@ -1,0 +1,9 @@
+Because of the line buffering of the I/O
+"Hello" string prints twice in the first 
+program. Fork() method copies the process 
+and also copies the buffer. 
+
+In the second program output is only one 
+"Hello\n" line and two empty lines. After 
+fork() method call both buffers will be 
+empty, they will just printing "\n" line
