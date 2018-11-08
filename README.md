@@ -1,2 +1,2 @@
-# LABS-of-OS-subject-
+# LABS-of-OS-subject
 Exercises in labs 
